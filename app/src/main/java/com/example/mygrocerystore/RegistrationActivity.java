@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,8 @@ public class RegistrationActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
 
+    ProgressBar progressBar;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,8 @@ public class RegistrationActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
+        progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.GONE);
         signUp = findViewById(R.id.reg_btn);
         name = findViewById(R.id.name);
         email = findViewById(R.id.email_reg);
@@ -52,6 +57,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 createUser();
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -85,9 +91,10 @@ public class RegistrationActivity extends AppCompatActivity {
                     UserModel userModel = new UserModel(userName,userEmail,userPassword);
                     String id = task.getResult().getUser().getUid();
                     database.getReference().child("Users").child(id).setValue(userModel);
-
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(RegistrationActivity.this,"Register success",Toast.LENGTH_SHORT).show();
                 } else{
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(RegistrationActivity.this,"Error"+task.getException(),Toast.LENGTH_SHORT).show();
                 }
             }
