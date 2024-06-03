@@ -3,7 +3,7 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath("com.google.gms:google-services:4.4.2")
@@ -11,13 +11,6 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        mavenCentral()
-    }
-}
 
 plugins {
     id("com.android.application") version "8.2.0" apply false
