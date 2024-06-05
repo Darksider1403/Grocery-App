@@ -22,6 +22,7 @@
             android:src="@mipmap/offers3" />
 
         <TextView
+            android:id="@+id/pop_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alice"

@@ -1,7 +1,5 @@
 package com.example.mygrocerystore.ui.home;
 
-import static android.os.Build.VERSION_CODES.R;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +22,7 @@ public class HomeFragment extends Fragment {
     RecyclerView popularRec;
 
     List<PopularModel> popularModelList;
-            PopularAdapters popularAdapters;
+    PopularAdapters popularAdapters;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -33,5 +31,5 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
-
 }
+

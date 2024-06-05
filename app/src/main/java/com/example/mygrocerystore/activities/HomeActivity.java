@@ -1,5 +1,6 @@
 package com.example.mygrocerystore.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ public class HomeActivity extends AppCompatActivity {
     ProgressBar processBar;
     FirebaseAuth auth;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
